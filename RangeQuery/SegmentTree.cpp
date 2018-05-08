@@ -18,7 +18,7 @@ public:
 			data[idx] = std::min(data[idx * 2], data[idx * 2 + 1]);
 	}
 
-	void update(int idx, int value) {
+	void update(int idx, int value) {		//arr[index]=val  , 0 indexing
 		idx += n;
 		data[idx] = value;
 
@@ -28,7 +28,7 @@ public:
 		}
 	}
 
-	int minimum(int left, int right) { // interval [left, right)
+	int minimum(int left, int right) { // interval [left, right) , 0 indexing
 		int ret = std::numeric_limits<int>::max();
 		left += n;
 		right += n;
