@@ -1,6 +1,6 @@
 #include <limits>
 #include <vector>
-
+// minimum: [l,r)    update: [l , r , value_to_be_added]
 class SegmentTreeRecLazy
 {
 public:
@@ -53,11 +53,14 @@ public:
         if (r == -1)
             r = n;
 
-        if (x >= r || y <= l) {
-        } else if (x <= l && r <= y) {
+        if (x >= r || y <= l) 
+        {   //do nothing invalid range case
+        } 
+        else if (x <= l && r <= y) {
             data[id] += addend;
             todo[id] += addend;
-        } else {
+        } 
+        else {
             push(id, l, r);
             int m = (l + r) >> 1;
             update(x, y, addend, id << 1, l, m);
